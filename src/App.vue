@@ -22,24 +22,28 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    margin-top: 60px;
+  }
+
+  body{
+    padding: 0;
+    margin: 0;
   }
 
   .logo{
-        width: 200px;
-        padding-bottom: 20px;
-    }
+    width: 200px;
+    padding-bottom: 20px;
+  }
 
-    .signup input, .signin input{
-        display: block;
-        width: 300px;
-        height: 40px;
-        padding-left: 20px;
-        margin-bottom: 20px;
-        margin-left: auto;
-        margin-right: auto;
-        border: 1px dashed green;
-    }
+  .signup input, .signin input{
+    display: block;
+    width: 300px;
+    height: 40px;
+    padding-left: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px dashed green;
+  }
 
     .signup button, .signin button{
         color: white;

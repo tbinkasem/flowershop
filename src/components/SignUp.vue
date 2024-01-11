@@ -11,7 +11,6 @@
         </p>
     </div>
 
-
 </template>
 
 <script>
@@ -38,7 +37,6 @@
                     password: this.password
                 });
                 if(result.status == 201){
-                    // alert("ลงทะเบียนใช้งานเรียบร้อยแล้ว");
                     localStorage.setItem("user-data", JSON.stringify(result.data))
                     this.$router.push({
                         name: 'Home'
@@ -63,7 +61,6 @@
 </script>
 
 <style>
-
 
 
 </style>

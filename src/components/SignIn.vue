@@ -47,7 +47,6 @@
 
         },
 
-        
         mounted(){
             let user = localStorage.getItem("user-data")
             if(user){
@@ -61,7 +60,6 @@
 </script>
 
 <style>
-
 
 
 </style>
