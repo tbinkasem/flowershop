@@ -6,6 +6,9 @@
         <input type="email" placeholder="อีเมล์" v-model="email">
         <input type="password" placeholder="รหัสผ่าน" v-model="password">
         <button v-on:click="signup">ลงทะเบียนใช้งาน</button>
+        <p>
+            <router-link to="/sign-in">ใช้งานในระบบ</router-link>
+        </p>
     </div>
 
 
@@ -61,29 +64,6 @@
 
 <style>
 
-    .logo{
-        width: 200px;
-        padding-bottom: 20px;
-    }
 
-    .signup input{
-        display: block;
-        width: 300px;
-        height: 40px;
-        padding-left: 20px;
-        margin-bottom: 20px;
-        margin-left: auto;
-        margin-right: auto;
-        border: 1px dashed green;
-    }
-
-    .signup button{
-        color: white;
-        width: 320px;
-        height: 40px;
-        border: 1px dashed green;
-        background-color: green;
-        cursor: pointer;
-    }
 
 </style>
