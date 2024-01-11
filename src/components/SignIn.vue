@@ -14,6 +14,8 @@
 
 <script>
 
+    import axios from 'axios'
+
     export default{
 
         name: 'SignIn',
@@ -26,10 +28,33 @@
 
         methods:{
 
-            signin(){
-                console.warn(this.email,this.password)
+            async signin(){
+                // console.warn(this.email,this.password)
+                let result = await axios.get(
+                    `http://localhost:3000/users?email=${this.email}&password=${this.password}`
+                )
+                if(result.status == 200 && result.data.length > 0){
+                    localStorage.setItem("user-data", JSON.stringify(result.data))
+                    this.$router.push({
+                        name: 'Home'
+                    })
+                }else{
+                    alert("อีเมล์/รหัสผ่านไม่ถูกต้อง");
+                    this.email = ''
+                    this.password = ''
+                }
             }
 
+        },
+
+        
+        mounted(){
+            let user = localStorage.getItem("user-data")
+            if(user){
+                this.$router.push({
+                    name: 'Home'
+                })
+            }
         }
     }
 
