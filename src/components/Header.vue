@@ -1,10 +1,10 @@
 <template>
 
     <div class="nav">
-        <a href="#">หน้าแรก</a>
-        <a href="#">เพิ่มร้านขายดอกไม้</a>
-        <a href="#">ปรับปรุงร้านขายดอกไม้</a>
-        <a href="#">ออกจากระบบ</a>
+        <router-link to="/">หน้าแรก</router-link>
+        <router-link to="/add">เพิ่มร้านขายดอกไม้</router-link>
+        <router-link to="update">ปรับปรุงร้านขายดอกไม้</router-link>
+        <a href="#" v-on:click="signout">ออกจากระบบ</a>
     </div>
 
 </template>
@@ -13,6 +13,12 @@
 
     export default{
         name: 'Header',
+        methods:{
+            signout(){
+                localStorage.clear();
+                this.$router.push({name: 'SignIn'});
+            }
+        }
     }
 
 </script>

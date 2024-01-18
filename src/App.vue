@@ -10,6 +10,10 @@ export default {
 
   name: 'App',
   
+  mounted() {
+    document.title = '[65309010000] ระบบจัดการร้านขายดอกไม้'
+  }
+  
 }
 
 </script>
