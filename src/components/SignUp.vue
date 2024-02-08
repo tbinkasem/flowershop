@@ -31,7 +31,7 @@
 
         methods:{
             async signup(){
-                let result = await axios.post("http://localhost:3000/users",{
+                let result = await axios.post("http://192.168.10.20:3000/users",{
                     fullname: this.fullname,
                     email: this.email,
                     password: this.password
@@ -39,7 +39,7 @@
                 if(result.status == 201){
                     localStorage.setItem("user-data", JSON.stringify(result.data))
                     this.$router.push({
-                        name: 'Home'
+                        name: 'HomePage'
                     })
                 }else{
                     alert("ไม่สามารถลงทะเบียนใช้งานได้");
@@ -51,7 +51,7 @@
             let user = localStorage.getItem("user-data")
             if(user){
                 this.$router.push({
-                    name: 'Home'
+                    name: 'HomePage'
                 })
             }
         }

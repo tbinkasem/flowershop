@@ -1,5 +1,4 @@
 <template>
-
     <img class="logo" alt="FlowerShop Logo" src="../assets/flowershop.png">
     <div class="signin">
         <input type="email" placeholder="อีเมล์" v-model="email">
@@ -9,57 +8,52 @@
             <router-link to="/sign-up">ลงทะเบียนใช้งาน</router-link>
         </p>
     </div>
-
 </template>
 
 <script>
 
-    import axios from 'axios'
+import axios from 'axios'
 
-    export default{
+export default {
 
-        name: 'SignIn',
-        data(){
-            return{
-                email: '',
-                password: ''
-            }
-        },
+    name: 'SignIn',
+    data() {
+        return {
+            email: '',
+            password: ''
+        }
+    },
 
-        methods:{
+    methods: {
 
-            async signin(){
-                // console.warn(this.email,this.password)
-                let result = await axios.get(
-                    `http://localhost:3000/users?email=${this.email}&password=${this.password}`
-                )
-                if(result.status == 200 && result.data.length > 0){
-                    localStorage.setItem("user-data", JSON.stringify(result.data))
-                    this.$router.push({
-                        name: 'Home'
-                    })
-                }else{
-                    alert("อีเมล์/รหัสผ่านไม่ถูกต้อง");
-                    this.email = ''
-                    this.password = ''
-                }
-            }
-
-        },
-
-        mounted(){
-            let user = localStorage.getItem("user-data")
-            if(user){
+        async signin() {
+            let result = await axios.get(
+                `http://192.168.10.20:3000/users?email=${this.email}&password=${this.password}`
+            )
+            if (result.status == 200 && result.data.length > 0) {
+                localStorage.setItem("user-data", JSON.stringify(result.data).replace(/^\[|]$/g, ''))
                 this.$router.push({
-                    name: 'Home'
+                    name: 'HomePage'
                 })
+            } else {
+                alert("อีเมล์/รหัสผ่านไม่ถูกต้อง");
+                this.email = ''
+                this.password = ''
             }
         }
+
+    },
+
+    mounted() {
+        let user = localStorage.getItem("user-data")
+        if (user) {
+            this.$router.push({
+                name: 'HomePage'
+            })
+        }
     }
+}
 
 </script>
 
-<style>
-
-
-</style>
+<style></style>
